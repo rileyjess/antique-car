@@ -20,7 +20,7 @@ const collectEmployees = function() {
     // Ask user to input salary
     let salaryData = window.prompt("Enter salary:");
 
-    // If the data entered is not a number, return $0
+    // If the data entered for the salary is not a number, return $0
     if (isNaN(salaryData)) {
       salaryData = 0;
     }
@@ -32,7 +32,8 @@ const collectEmployees = function() {
       lastName,
       salary,
     })
-
+    
+    // Confirm whether the user wants to add another employee or not
     enterData = window.confirm("Do you want to add another employee?")
   }
   console.log(employeesArray);
@@ -42,11 +43,10 @@ const collectEmployees = function() {
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
 
   let sum = 0;
 
-  // A for loop will sum the salary values the user entered
+  // A for loop will sum the salary values entered
   for(let i = 0; i < employeesArray.length; i++) {
   sum += Number(employeesArray[i].salary);
   }
@@ -67,12 +67,12 @@ const displayAverageSalary = function(employeesArray) {
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  // TODO: Selects a random employee from the employeesArray
+  // Select a random employee from the employeesArray
 
   var index = Math.floor(Math.random() * employeesArray.length );
   var randomPerson = employeesArray[index].firstName + " " + employeesArray[index].lastName;
 
-  // Displays the random employee in the console log
+  // Display the random employee in the console log
   console.log(`Congratulations to ${randomPerson}, our random drawing winner!`)
 }
 
