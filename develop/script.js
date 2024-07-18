@@ -18,17 +18,19 @@ const collectEmployees = function() {
     let lastName = window.prompt("Enter last name:");
 
     // Ask user to input salary
-    let salary = window.prompt("Enter salary:");
+    let salaryData = window.prompt("Enter salary:");
 
     // If the data entered is not a number, return $0
-    if (isNaN(salary)) {
-      salary = 0;
+    if (isNaN(salaryData)) {
+      salaryData = 0;
     }
+
+    let salary = parseInt(salaryData);
 
     employeesArray.push({
       firstName,
       lastName,
-      salary
+      salary,
     })
 
     enterData = window.confirm("Do you want to add another employee?")
@@ -52,9 +54,14 @@ const displayAverageSalary = function(employeesArray) {
   // Then, calculate the average of those numbers
   const average = sum / employeesArray.length;
 
+  // Create a currency format so the average displays as a currency
+  let currencyFormat = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',})
+
   // Display the average in the console log
   console.log(`The average employee salary between our ${employeesArray.length}
-  employee(s) is ${average}.`);
+  employee(s) is ${currencyFormat.format(average)}.`);
 }
 
 
