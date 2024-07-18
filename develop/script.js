@@ -6,11 +6,7 @@ const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
   
 
-  const employeesArray = {
-    firstName: "",
-    lastName: "",
-    salary: 0,
-  };
+  const employeesArray = [];
 
   let enterData = true;
 
@@ -18,43 +14,47 @@ const collectEmployees = function() {
     // Ask user to input first name
     let firstName = window.prompt("Enter first name:");
 
-    if (!firstName) {
-      return;
-    }
-
     // Ask user to input last name
     let lastName = window.prompt("Enter last name:");
-
-    if (!lastName) {
-      return;
-    }
 
     // Ask user to input salary
     let salary = window.prompt("Enter salary:");
 
     // If the data entered is not a number, return $0
-    if (isNaN (salary)) {
-      return 0;
+    if (isNaN(salary)) {
+      salary = 0;
     }
 
-    if (!salary) {
-      return;
-    }
+    employeesArray.push({
+      firstName,
+      lastName,
+      salary
+    })
 
     enterData = window.confirm("Do you want to add another employee?")
-
-    if(!enterData) {
-      return employeesArray;
-    }
   }
+  console.log(employeesArray);
+  return employeesArray;
 };
-
-collectEmployees();
-
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+
+  let sum = 0;
+
+  // A for loop will sum the salary values the user entered
+  for(let i = 0; i < employeesArray.length; i++) {
+  sum += Number(employeesArray[i].salary);
+  }
+
+  // Then, calculate the average of those numbers
+  const average = sum / employeesArray.length;
+
+  // Display the average in the console log
+  console.log(`The average employee salary between our ${employeesArray.length}
+  employee(s) is ${average}.`);
+
 }
 
 // Select a random employee
@@ -105,6 +105,7 @@ const displayEmployees = function(employeesArray) {
 
 const trackEmployeeData = function() {
   const employees = collectEmployees();
+  console.log(employees)
 
   console.table(employees);
 
