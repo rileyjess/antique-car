@@ -15,8 +15,10 @@ Completed Tasks:
 - Added logic to randomly select an employee from the array as a drawing winner
 
 ## Website Screenshot
+![Screenshot](https://github.com/user-attachments/assets/25b3c506-f76d-4a4a-9164-c18c2a9b2117)
 
 ## Deployed Website URL
+https://rileyjess.github.io/antique-car/
 
 ## Credits
 HTML, CSS, and JavaScript starter code copied from: https://github.com/coding-boot-camp/curly-potato
